@@ -24,6 +24,7 @@ build = {
     ["udev.enumerator"] = "udev/enumerator.lua",
     ["udev.libudev"] = "udev/libudev.lua",
     ["udev.list"] = "udev/list.lua",
+    ["udev.monitor"] = "udev/monitor.lua",
     ["udev.util"] = "udev/util.lua",
   },
 }
