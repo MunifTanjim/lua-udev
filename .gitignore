@@ -1,1 +1,9 @@
 .luacheckcache
+
+/luarocks
+/lua_modules
+/.luarocks
+/lua
+
+lua-udev-*.rock
+lua-udev-*.tar.gz
