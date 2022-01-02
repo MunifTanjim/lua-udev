@@ -18,6 +18,9 @@ description = {
 }
 build = {
   type = "builtin",
+  modules = {
+    ["udev.libudev"] = "udev/libudev.lua",
+  },
 }
 dependencies = {}
 build_dependencies = {
