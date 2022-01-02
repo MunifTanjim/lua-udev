@@ -19,6 +19,7 @@ description = {
 build = {
   type = "builtin",
   modules = {
+    ["udev.context"] = "udev/context.lua",
     ["udev.libudev"] = "udev/libudev.lua",
     ["udev.list"] = "udev/list.lua",
     ["udev.util"] = "udev/util.lua",
