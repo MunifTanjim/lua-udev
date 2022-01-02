@@ -20,6 +20,7 @@ build = {
   type = "builtin",
   modules = {
     ["udev.libudev"] = "udev/libudev.lua",
+    ["udev.list"] = "udev/list.lua",
     ["udev.util"] = "udev/util.lua",
   },
 }
