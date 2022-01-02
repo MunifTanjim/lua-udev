@@ -20,6 +20,7 @@ build = {
   type = "builtin",
   modules = {
     ["udev.context"] = "udev/context.lua",
+    ["udev.device"] = "udev/device.lua",
     ["udev.enumerator"] = "udev/enumerator.lua",
     ["udev.libudev"] = "udev/libudev.lua",
     ["udev.list"] = "udev/list.lua",
