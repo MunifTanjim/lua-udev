@@ -13,15 +13,28 @@ local function ListEntry(entry)
 end
 
 ---@class UDevList
+---@type fun(): UDevListEntry
 local List = {}
+
+function List:_reset()
+  self._next = self._head
+end
 
 ---@param head udev_list_entry
 ---@return UDevList
 function List:new(head)
-  local list = setmetatable({}, { __index = self })
+  ---@type UDevList
+  local list = {
+    _head = head,
+    _next = head,
+  }
 
-  list._head = head
-  list._next = head
+  setmetatable(list, {
+    __index = self,
+    __call = function(_)
+      return _:next_entry()
+    end,
+  })
 
   return list
 end
@@ -29,12 +42,10 @@ end
 ---@param name string
 ---@return UDevListEntry|nil
 function List:get_by_name(name)
-  ---@diagnostic disable-next-line: undefined-field
   if self._head == nil then
     return nil
   end
 
-  ---@diagnostic disable-next-line: undefined-field
   local entry = lib.udev_list_entry_get_by_name(self._head, name)
   if entry == nil then
     return nil
@@ -46,6 +57,7 @@ end
 ---@return UDevListEntry|nil
 function List:next_entry()
   if self._next == nil then
+    self:_reset()
     return nil
   end
 
