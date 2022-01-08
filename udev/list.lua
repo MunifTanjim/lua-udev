@@ -66,12 +66,15 @@ function List:next_entry()
   return entry
 end
 
+---@return UDevListEntry[]
 function List:entries()
-  local function iter()
-    return self:next_entry()
+  local entries = {}
+
+  for entry in self do
+    table.insert(entries, entry)
   end
 
-  return iter
+  return entries
 end
 
 return List
